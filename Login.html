@@ -1,0 +1,121 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loguearme/Registro</title>
+
+    <link href="Style.css" rel="stylesheet">
+
+
+    <script type="text/javascript">
+        function comprobar() {
+                         var mirarLargo="no";
+                         var mirarIgual="no";
+                         var contra1 = document.formulario.clave1
+                         var contra2 = document.formulario.clave2
+                         var aviso = document.getElementById("aviso");
+                         aviso.innerHTML = ""
+                         if (contra1.value.length >= 7) {
+                                 mirarLargo = "si"
+                                }
+                         else {
+                                 texto = "La contraseña debe tener mas de 7 caracteres.<br/>"  
+                                 aviso.innerHTML += texto
+                                 }
+                         if (contra1.value == contra2.value) {
+                                 mirarIgual = "si"
+                                 }
+                         else {
+                                 texto = "La contraseña y su repeticion deben ser iguales.<br/>"  
+                                 aviso.innerHTML += texto
+                                }
+                         if (mirarLargo == "no" || mirarIgual == "no") {
+                                 return false
+                                }
+                         }
+        function restaurar() {
+                         var aviso = document.getElementById("aviso");
+                         aviso.innerHTML = ""
+                         }
+        </script>
+    
+
+</head>
+<body>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ingresar</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarme</label>
+            <div class="login-form">
+
+                <form name="formulario2" action="005-ejemplo-atributo-required-html5.php" >
+                        <div class="sign-in-htm">
+                            <div class="group">
+                                <label for="user" class="label">Nombre de Usuario</label>
+                                <input id="user" type="text" class="input" placeholder="Nombre de usuario" required>
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Contraseña</label>
+                                <input id="pass" type="password" class="input" data-type="password" placeholder="Contraseña" required>
+                            </div>
+                            
+                            <div class="group">
+                                <input type="submit" class="button" value="Entrar">
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <a href="index.html">Regresar al inicio</a>
+
+                            
+                            </div>
+                        </div>
+                </form>    
+
+                    <form name="formulario" action="005-ejemplo-atributo-required-html5.php" onsubmit="return comprobar()">
+                        <div class="sign-up-htm">
+                            <div class="group">
+                                <label for="user" class="label">Nombre de Usuario</label>
+                                <input id="user" type="text" class="input" placeholder="Por favor escribe tu nombre de usuario" required >
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Contraseña</label>
+                                <input id="pass" type="password" class="input" data-type="password" name='clave1' onfocus="restaurar()" placeholder="Minimo 8 Caracteres" pattern=".{8,15}" title="Caracteres. Tamaño mínimo: 8. Tamaño máximo: 15"  required>
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Repetir Contraseña</label>
+                                <input id="pass" type="password" class="input" data-type="password" name='clave2' onfocus="restaurar()"   pattern=".{8,15}" title="Caracteres. Tamaño mínimo: 8. Tamaño máximo: 15"   required>
+                            </div>
+                            <div class="group">
+                                <label for="email" class="label">Correo Electrónico</label>
+                                <input id="email" type="text" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Ejemplo: dragones@unicauca.com" title="Escriba un Email Válido"  required>
+                            </div>
+                            <div class="group">
+                                <input type="submit" class="button" value="Registrarme" >
+                               
+                            </div>
+                            <div class="hr"></div>
+                         
+                            <div class="foot-lnk">
+                                <label  style="color:greenyellow;" for="tab-1">Eres Miembro?</a>
+                                    
+                            </div>
+                            <p id="aviso" style="color:#FF0000">.<br>.<br></p>
+                        </div>
+         
+                    </form>
+                    
+                        
+             </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
